@@ -1,0 +1,44 @@
+<div class="p-4">
+    <section class="heading">
+    <span style="font-weight: bold; font-style: italic">{{title}}</span>
+    </section>
+    <table class="table table-sm">
+        <tr>
+            <td>Username:</td>
+            <input [(ngModel)]="newUser.userName" class="rounded" type="text"/>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <input [(ngModel)]="newUser.password" class="rounded" type="text" />
+        </tr>
+        <tr>
+            <td>First Name:</td>
+            <input [(ngModel)]="newUser.firstName" class="rounded" type="text" />
+        </tr>
+        <tr>
+            <td>Last Name:</td>
+            <input [(ngModel)]="newUser.lastName" class="rounded" type="text" />
+        </tr>
+        <tr>
+            <td>Phone Number:</td>
+            <input [(ngModel)]="newUser.phoneNumber" class="rounded" type="tel" />
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <input [(ngModel)]="newUser.email" class="rounded" type="email" />
+        </tr>
+        <tr>
+            <td>Reviewer:</td>
+            <td>
+                <input [(ngModel)]="newUser.reviewer" type="checkbox">
+            </td>
+        </tr>
+        <tr>
+            <td>Admin:</td>
+            <td>
+                <input [(ngModel)]="newUser.admin" type="checkbox">
+            </td>
+        </tr>
+    </table>
+    <button (click)="addUser()">Add User</button>
+</div>

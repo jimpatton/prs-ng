@@ -1,0 +1,57 @@
+<div *ngIf="user" class="component">
+       <section class="heading">
+        <p><span style="font-weight: bold; font-style: italic">{{title}}</span> | <a routerLink="/user-list">Return to List</a></p>
+        <!-- <span class="page-title font-weight-bold font-italic">{{title}}</span> -->
+        <!-- <span> | <a routerLink="/user-list">Return to List</a></span>         -->
+    </section>
+    <main class="single">
+        <table class="table table-sm">
+            <tr>
+                <td>ID</td>
+                <td>{{user.id}}</td>                
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <input [(ngModel)]="user.userName" class="rounded" type="text" disabled />
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <input [(ngModel)]="user.password" class="rounded" type="text" disabled />
+            </tr>
+            <tr>
+                <td>First Name:</td>
+                <input [(ngModel)]="user.firstName" class="rounded" type="text" disabled />
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <input [(ngModel)]="user.lastName" class="rounded" type="text" disabled />                
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <input [(ngModel)]="user.phoneNumber" class="rounded" type="tel" disabled />                
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <input [(ngModel)]="user.email" class="rounded" type="email" disabled />
+            </tr>
+            <tr>
+                <td>Reviewer</td>
+                <input [(ngModel)]="user.reviewer" type="checkbox"  disabled />
+            </tr>
+            <tr>
+                <td>Admin:</td>
+                <input [(ngModel)]="user.admin" type="checkbox" disabled />
+            </tr>
+        </table>
+    </main>
+    <span>
+        <span><a routerLink="/user-edit/{{user.id}}" class="btn btn-sm btn-warning">Edit</a></span>
+        <span>
+            |
+            <button (click)="delete()" class="btn btn-sm btn-danger">
+                Delete
+            </button>
+        </span>
+    </span>
+</div>
+
