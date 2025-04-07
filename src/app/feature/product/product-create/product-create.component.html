@@ -1,1 +1,58 @@
-<p>product-create works!</p>
+<div class="p-4">
+  <section class="heading">
+    <span style="font-weight: bold; font-style: italic">{{ title }}</span>
+  </section>
+  <table class="table table-sm">
+    <tbody>
+      <tr>
+        <td>Vendor:</td>
+        <td>
+          <select [(ngModel)]="newProduct.vendor" class="rounded">
+            <option *ngFor="let v of vendors" [ngValue]="v">
+              {{ v.name }}
+            </option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Part Number:</td>
+        <td>
+          <input
+            [(ngModel)]="newProduct.partNumber"
+            class="rounded"
+            type="text"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>Name:</td>
+        <td>
+          <input [(ngModel)]="newProduct.name" class="rounded" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>Price:</td>
+        <td>
+          <input [(ngModel)]="newProduct.price" class="rounded" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>Unit:</td>
+        <td>
+          <input [(ngModel)]="newProduct.unit" class="rounded" type="text" />
+        </td>
+      </tr>
+      <tr>
+        <td>Photopath</td>
+        <td>
+          <input
+            [(ngModel)]="newProduct.photopath"
+            class="rounded"
+            type="text"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="addProduct()">Add Product</button>
+</div>

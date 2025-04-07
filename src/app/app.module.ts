@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms'
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
 import { UserListComponent } from './feature/user/user-list/user-list.component';
 import { UserCreateComponent } from './feature/user/user-create/user-create.component';
 import { UserEditComponent } from './feature/user/user-edit/user-edit.component';
@@ -23,6 +23,7 @@ import { ProductDetailComponent } from './feature/product/product-detail/product
 import { ProductCreateComponent } from './feature/product/product-create/product-create.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { MenuComponent } from './core/menu/menu.component';
+import { CommonModule } from '@angular/common';
 ;
 
 @NgModule({
@@ -50,11 +51,15 @@ import { MenuComponent } from './core/menu/menu.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    CommonModule
   ],
   providers: [
-    // provideClientHydration(withEventReplay()),
-    provideHttpClient(withInterceptorsFromDi())
+    provideClientHydration(withEventReplay()),
+    provideHttpClient(withInterceptorsFromDi()),
+    provideHttpClient(withFetch()),
+   
+
   ],
   bootstrap: [AppComponent]
 })
