@@ -24,6 +24,7 @@ import { ProductCreateComponent } from './feature/product/product-create/product
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { MenuComponent } from './core/menu/menu.component';
 import { CommonModule } from '@angular/common';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 ;
 
 @NgModule({
@@ -46,7 +47,8 @@ import { CommonModule } from '@angular/common';
     ProductDetailComponent,
     ProductCreateComponent,
     NotFoundComponent,
-    MenuComponent
+    MenuComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,

@@ -17,9 +17,10 @@ import { ProductCreateComponent } from './feature/product/product-create/product
 import { ProductEditComponent } from './feature/product/product-edit/product-edit.component';
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
+import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 
 const routes: Routes = [
-  {path:'', redirectTo: '/user-list',pathMatch: 'full'},
+  {path:'', redirectTo: '/user-login',pathMatch: 'full'},
   {path:'user-list', component:UserListComponent},
   {path:'user-create', component:UserCreateComponent},
   {path:'user-edit/:id',component:UserEditComponent},
@@ -36,6 +37,7 @@ const routes: Routes = [
   {path:'product-create', component:ProductCreateComponent},
   {path:'product-edit/:id',component:ProductEditComponent},
   {path:'product-detail/:id', component:ProductDetailComponent},
+  {path:'user-login', component:UserLoginComponent},
   {path:'**', component:NotFoundComponent},
 ];
 
