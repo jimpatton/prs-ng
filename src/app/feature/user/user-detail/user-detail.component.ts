@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { User } from '../../../model/user';
 import { UserService } from '../../../service/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from '../../../service/system.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -14,15 +15,22 @@ export class UserDetailComponent implements OnInit, OnDestroy{
   title:string = 'User Detail';
   userId!:number;
   user!:User;
-  subscription!:Subscription
+  subscription!:Subscription;
+  welcomeMsg!:string;
+  loggedInUser!:User;
+  isAdmin:boolean = false;
 
   constructor(
     private userSvc:UserService,
     private router:Router,
     private actRoute:ActivatedRoute,
+    private sysSvc:SystemService
   ){}
   
   ngOnInit(): void {
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.isAdmin = this.loggedInUser.admin;
+    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
    this.actRoute.params.subscribe((parms)=>{
     this.userId = parms['id'];
     this.subscription = this.userSvc.getById(this.userId).subscribe({

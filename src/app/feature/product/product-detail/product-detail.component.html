@@ -1,9 +1,17 @@
 <div class="p-4" >
     <section class="heading">
         <span style="font-weight: bold; font-style: italic">{{title}}</span>
+        <span
+    style="
+      float: right;
+      padding-right: 30px;
+      font-style: italic;
+      font-weight: bold;
+    "
+    >{{ welcomeMsg }}</span> 
     </section>
     <main class="single">
-    <table class="table table-striped table-hover">
+    <table *ngIf="product" class="table table-striped table-hover">
         <tr>
             <td>Vendor:</td>
             <td>
@@ -42,7 +50,7 @@
         </tr>
         </table>
 </main> 
-<span><a routerLink="/product-edit/{{product.id}}" class="btn btn-sm btn-warning">Edit</a></span>
+<span *ngIf="product"><a routerLink="/product-edit/{{product.id}}" class="btn btn-sm btn-warning">Edit</a></span>
 <span>
     <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button>
 </span>

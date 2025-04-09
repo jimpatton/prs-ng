@@ -5,6 +5,8 @@ import { Vendor } from '../../../model/vendor';
 import { ProductService } from '../../../service/product.service';
 import { VendorService } from '../../../service/vendor.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from '../../../service/system.service';
+import { User } from '../../../model/user';
 
 @Component({
   selector: 'app-product-edit',
@@ -18,15 +20,22 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   product!: Product;
   subscription!: Subscription;
   vendors: Vendor[] = [];
+  welcomeMsg!:string;
+  loggedInUser!:User;
+  isAdmin:boolean = false;
 
   constructor(
     private productSvc: ProductService,
     private vendorSvc: VendorService,
     private router: Router,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private sysSvc:SystemService
   ) {}
 
   ngOnInit(): void {
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.isAdmin = this.loggedInUser.admin;
+    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
     console.log('pe ngoninit()');
     this.actRoute.params.subscribe((parms) => {
       console.log('A');

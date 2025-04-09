@@ -57,7 +57,6 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
     CommonModule
   ],
   providers: [
-    provideClientHydration(withEventReplay()),
     provideHttpClient(withInterceptorsFromDi()),
     provideHttpClient(withFetch()),
    

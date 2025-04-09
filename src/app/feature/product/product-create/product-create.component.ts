@@ -5,6 +5,8 @@ import { Vendor } from '../../../model/vendor';
 import { ProductService } from '../../../service/product.service';
 import { VendorService } from '../../../service/vendor.service';
 import { Router } from '@angular/router';
+import { User } from '../../../model/user';
+import { SystemService } from '../../../service/system.service';
 
 @Component({
   selector: 'app-product-create',
@@ -17,14 +19,21 @@ export class ProductCreateComponent implements OnInit, OnDestroy {
   newProduct: Product = new Product();
   subscription!: Subscription;
   vendors!: Vendor[];
+  welcomeMsg!:string;
+  loggedInUser!:User;
+  isAdmin:boolean = false;
 
   constructor(
     private productSvc: ProductService,
     private vendorSvc: VendorService,
-    private router: Router
+    private router: Router,
+    private sysSvc:SystemService
   ) {}
 
   ngOnInit(): void {
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.isAdmin = this.loggedInUser.admin;
+    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
     this.subscription = this.vendorSvc.list().subscribe({
       next: (resp) => {
         this.vendors = resp;

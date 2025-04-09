@@ -1,6 +1,14 @@
 <div class="p-4">
     <section class="heading">
         <span style="font-weight: bold; font-style: italic">{{title}}</span>
+        <span
+    style="
+      float: right;
+      padding-right: 30px;
+      font-style: italic;
+      font-weight: bold;
+    "
+    >{{ welcomeMsg }}</span>
     </section>
     <p *ngIf="!vendor">Loading...</p>
     <div *ngIf="vendor">

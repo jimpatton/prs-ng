@@ -1,12 +1,20 @@
 <div class="p-4" *ngIf="request">
     <section class="heading">
-        <span style="font-weight: bold; font-style: italic">{{title}}</span>      
+        <span style="font-weight: bold; font-style: italic">{{title}}</span>  
+        <span
+    style="
+      float: right;
+      padding-right: 30px;
+      font-style: italic;
+      font-weight: bold;
+    "
+    >{{ welcomeMsg }}</span>    
     </section>
     <table class="table table-sm">
     <tr>
-        <td>User Id:</td>
+        <td>User:</td>
         <td>
-            <input [(ngModel)]="request.user.id" class="rounded" type="number" disabled />
+            <input [(ngModel)]="request.user.firstName" class="rounded" type="number" disabled />
         </td>
     </tr>
      <tr>

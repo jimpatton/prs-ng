@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { RequestService } from '../../../service/request.service';
 import { Request } from '../../../model/request';
+import { SystemService } from '../../../service/system.service';
+import { User } from '../../../model/user';
 
 @Component({
   selector: 'app-request-list',
@@ -13,10 +15,19 @@ export class RequestListComponent implements OnInit, OnDestroy {
   title: string = 'Request List';
   requests!: Request[];
   subscription!: Subscription;
+  welcomeMsg!:string;
+  loggedInUser!:User;
+  isAdmin:boolean = false;
 
-  constructor(private requestSvc: RequestService) {}
+  constructor(
+    private requestSvc: RequestService,
+    private sysSvc:SystemService,  
+  ) {}
 
   ngOnInit(): void {
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.isAdmin = this.loggedInUser.admin;
+    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
     this.subscription = this.requestSvc.list().subscribe((resp) => {
       this.requests = resp;
     });

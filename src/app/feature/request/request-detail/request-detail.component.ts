@@ -3,6 +3,8 @@ import { Request } from '../../../model/request';
 import { Subscription } from 'rxjs';
 import { RequestService } from '../../../service/request.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from '../../../service/system.service';
+import { User } from '../../../model/user';
 
 @Component({
   selector: 'app-request-detail',
@@ -15,17 +17,24 @@ export class RequestDetailComponent implements OnInit, OnDestroy{
   requestId!:number;
   request!:Request;
   subscription!:Subscription;
+  welcomeMsg!:string;
+  loggedInUser!:User;
+  isAdmin:boolean = false;
 
   constructor(
     private requestSvc:RequestService,
     private router:Router,
-    private actRoute:ActivatedRoute
+    private actRoute:ActivatedRoute,
+    private sysSvc:SystemService
   ){}
 
 
 
 
   ngOnInit(): void {
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.isAdmin = this.loggedInUser.admin;
+    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
     this.actRoute.params.subscribe((parms) => {
       this.requestId = parms['id'];
       this.subscription = this.requestSvc.getById(this.requestId).subscribe({

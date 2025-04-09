@@ -5,6 +5,7 @@ import { User } from '../../../model/user';
 import { RequestService } from '../../../service/request.service';
 import { UserService } from '../../../service/user.service';
 import { Router } from '@angular/router';
+import { SystemService } from '../../../service/system.service';
 
 
 @Component({
@@ -20,14 +21,23 @@ export class RequestCreateComponent implements OnInit, OnDestroy{
   users!: User[];
   deliveryModes: string[] = ['Pickup', 'Delivery'];
   statuss: string[] = ['Approved', 'New', 'Rejected', 'Review'];
+  welcomeMsg!:string;
+  loggedInUser!:User;
+  isAdmin:boolean = false;
  
   constructor(
     private requestSvc: RequestService,
     private userSvc: UserService,
-    private router: Router
+    private router: Router,
+    private sysSvc:SystemService
+    
   ){}
 
     ngOnInit(): void {
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.isAdmin = this.loggedInUser.admin;
+    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
+    this.newRequest.user = this.loggedInUser;
     this.subscription = this.userSvc.list().subscribe({
       next: (resp) => {
         this.users = resp;
@@ -41,7 +51,7 @@ export class RequestCreateComponent implements OnInit, OnDestroy{
   }
 
   addRequest() {
-    console.log('a', this.newRequest);
+    // console.log('a', this.newRequest);
     this.subscription = this.requestSvc.add(this.newRequest).subscribe({
       next: (resp) => {
         this.router.navigateByUrl('/request-list');

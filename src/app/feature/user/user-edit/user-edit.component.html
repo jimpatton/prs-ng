@@ -1,11 +1,25 @@
 <div class="p-4">  
     <section class="heading">
 <span style="font-weight: bold; font-style: italic">{{title}}</span>
+ <span
+    style="
+      float: right;
+      padding-right: 30px;
+      font-style: italic;
+      font-weight: bold;
+    "
+    >{{ welcomeMsg }}</span>
 </section>
+
 <p *ngIf="!user">Loading...</p>
 <div *ngIf="user">
+    
     <main class ="single">
         <table class= "table table-sm">
+            <tr>
+                <td>ID</td>
+                <td>{{user.id}}</td>                
+            </tr>
             <tr>
                 <td>Username:</td>
                 <td>

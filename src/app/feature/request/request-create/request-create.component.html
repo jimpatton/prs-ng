@@ -1,15 +1,20 @@
 <div class="p-4" *ngIf="newRequest">
     <section class="heading">
-        <span style="font-weight: bold; font-style: italic">{{title}}</span>      
+        <span style="font-weight: bold; font-style: italic">{{title}}</span>  
+        <span
+    style="
+      float: right;
+      padding-right: 30px;
+      font-style: italic;
+      font-weight: bold;
+    "
+    >{{ welcomeMsg }}</span>      
     </section>
     <table class="table table-sm">
     <tr>
-        <td>User Id:</td>
+        <td>User:</td>
         <td>
-            <select [(ngModel)]="newRequest.user.id" class="rounded" >
-                <option *ngFor="let u of users" [ngValue]="u.id">{{u.id}}                    
-                </option>
-            </select>
+          <input value="{{newRequest.user.firstName +' '+ newRequest.user.lastName}}" class="rounded" type="text" style="background-color: lightgrey;"/>
         </td>
     </tr>     
     <tr>
@@ -37,5 +42,5 @@
       </td>
     </tr>    
     </table>
-     <button (click)="addRequest()">Add Request</button>
+     <button (click)="addRequest()" style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px; border: none;">Create</button>
 </div>

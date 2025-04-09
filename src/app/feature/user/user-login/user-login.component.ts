@@ -26,13 +26,16 @@ constructor(
 ){}
 
   ngOnInit(): void {
-    
+     console.log('login component ngoninit()');
+    this.userLogin.username = 'patton';
+    this.userLogin.password = 'password';
   }
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();
   }
 
 login(){
+  console.log('login component login()');
     // call the userService.login(this.userLogin)
     // expected results??
     // invalid info: invalid login - message displayed
@@ -40,7 +43,8 @@ login(){
     this.subscription = this.userSvc.login(this.userLogin).subscribe({
      next:(resp)=> {
         // what is happening here? how do we end up here inside of next? successful login
-        this.sysSvc.loggedInUser = resp;       
+        this.sysSvc.loggedInUser = resp;
+        console.log('userlogin', this.sysSvc.loggedInUser);    
         //nav to movie list
         this.router.navigateByUrl('/user-list');
       },

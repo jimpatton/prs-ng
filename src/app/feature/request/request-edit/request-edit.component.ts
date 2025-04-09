@@ -5,6 +5,7 @@ import { User } from '../../../model/user';
 import { RequestService } from '../../../service/request.service';
 import { UserService } from '../../../service/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from '../../../service/system.service';
 
 @Component({
   selector: 'app-request-edit',
@@ -20,15 +21,22 @@ export class RequestEditComponent implements OnInit, OnDestroy {
   users!: User[];
   deliveryModes: string[] = ['Pickup', 'Delivery'];
   statuss: string[] = ['Approved', 'New', 'Rejected', 'Review'];
+  welcomeMsg!:string;
+  loggedInUser!:User;
+  isAdmin:boolean = false;
 
   constructor(
     private requestSvc: RequestService,
     private userSvc: UserService,
     private router: Router,
-    private actRoute: ActivatedRoute
+    private actRoute: ActivatedRoute,
+    private sysSvc:SystemService
   ) {}
 
   ngOnInit(): void {
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.isAdmin = this.loggedInUser.admin;
+    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
     this.actRoute.params.subscribe((parms) => {
       this.requestId = parms['id'];
       this.subscription = this.requestSvc.getById(this.requestId).subscribe({
