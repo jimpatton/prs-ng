@@ -1,0 +1,42 @@
+<!-- <p>line-item-edit works!</p> -->
+<div class="p-4" *ngIf="lineItem">
+    <section class="heading">
+        <span style="font-weight: bold; font-style: italic">{{title}}</span>
+        <span
+    style="
+      float: right;
+      padding-right: 30px;
+      font-style: italic;
+      font-weight: bold;
+    "
+    >{{ welcomeMsg }}</span>      
+    </section>
+    <table class="table table-sm">        
+        <tr>
+            <td>Product:</td>
+            <td>
+            <select [(ngModel)]="lineItem.product" class="rounded" [compareWith]="compProduct">
+                <option *ngFor="let p of products" [ngValue]="p">{{p.name}}                    
+                </option>
+            </select>
+             </td>
+        </tr>
+        <tr>
+            <td>Quantity:</td>
+            <td>
+                <input [(ngModel)]="lineItem.quantity" class="rounded" type="number"/>
+            </td>        
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td>
+                <input [(ngModel)]="lineItem.product.price" class="rounded" type="number" style="background-color: lightgrey;" readonly/>
+            </td>
+        </tr>
+        </table>
+    <span>
+        <button (click)="save()" class="btn btn-am btn-primary">
+            Save
+        </button>
+        </span>
+</div>

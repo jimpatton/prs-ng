@@ -1,99 +1,50 @@
 <div class="p-4" *ngIf="request">
-    <section class="heading">
-        <span style="font-weight: bold; font-style: italic">{{title}}</span>  
-        <span
-    style="
+  <section class="heading">
+    <span style="font-weight: bold; font-style: italic">{{title}}</span>
+    <span style="
       float: right;
       padding-right: 30px;
       font-style: italic;
       font-weight: bold;
-    "
-    >{{ welcomeMsg }}</span>    
-    </section>
-    <table class="table table-sm">
+    ">{{ welcomeMsg }}</span>
+  </section>
+  <table class="table table-sm">
     <tr>
-        <td>User Id:</td>
-        <td>
-            <select [(ngModel)]="request.user.id" class="rounded" [compareWith]="compUser">
-                <option *ngFor="let u of users" [ngValue]="u.id">{{u.id}}                    
-                </option>
-            </select>
-        </td>
-    </tr>
-     <tr>
-        <td>Request Number:</td>
-        <td>
-        <input [(ngModel)]="request.requestNumber" class="rounded" type="text"/>
-        </td>
+      <td>Request Number:</td>
+      <td>
+        <input [(ngModel)]="request.requestNumber" class="rounded" type="text" disabled />
+      </td>
     </tr>
     <tr>
       <td>Description:</td>
       <td>
-        <input [(ngModel)]="request.description" class="rounded" type="text"/>
+        <input [(ngModel)]="request.description" class="rounded" type="text" />
       </td>
     </tr>
     <tr>
       <td>Justification:</td>
-      <input [(ngModel)]="request.justification" class="rounded" type="text"/>
+      <input [(ngModel)]="request.justification" class="rounded" type="text" />
     </tr>
     <tr>
       <td>Date Needed:</td>
       <td>
-        <input [(ngModel)]="request.dateNeeded" class="rounded" type="date"/>
+        <input [(ngModel)]="request.dateNeeded" class="rounded" type="date" />
       </td>
     </tr>
     <tr>
       <td>Delivery Mode:</td>
       <td>
         <select [(ngModel)]="request.deliveryMode" class="rounded" [compareWith]="compUser">
-          <option *ngFor="let dm of deliveryModes" [ngValue]="dm">{{dm}} </option>         
+          <option *ngFor="let dm of deliveryModes" [ngValue]="dm">{{dm}} </option>
         </select>
       </td>
     </tr>
     <tr>
-      <td>Status:</td>
-      <td>
-        <select [(ngModel)]="request.status" class="rounded" [compareWith]="compUser">
-          <option *ngFor="let s of statuss" [ngValue]="s">{{s}}</option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <td>Total:</td>
-      <td>
-        <input [(ngModel)]="request.total" class="rounded" type="number">
-      </td>
-    </tr>
-    <tr>
-      <td>Submitted Date:</td>
-      <td>
-        <input [(ngModel)]="request.submittedDate" class="rounded" type="datetime">
-      </td>
-    </tr>
-    <tr>
-      <td>Reason For Rejection:</td>
-      <td>
-        <input [(ngModel)]="request.reasonForRejection" class="rounded" type="text">
-      </td>
-    </tr>
-    </table>
-     <span>
-        <button (click)="save()" class="btn btn-am btn-primary">
-            Save
-        </button>
-        </span>
+
+  </table>
+  <span>
+    <button (click)="save()" class="btn btn-am btn-primary">
+      Save
+    </button>
+  </span>
 </div>
-
-
-
-
-
-
-
-  
-
-
-
-
-
-

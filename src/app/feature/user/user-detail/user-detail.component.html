@@ -53,10 +53,10 @@
         </table>
     </main>
     <span>
-        <span><a routerLink="/user-edit/{{user.id}}" class="btn btn-sm btn-warning">Edit</a></span>
+        <span><a *ngIf="this.isAdmin" routerLink="/user-edit/{{user.id}}" class="btn btn-sm btn-warning">Edit</a></span>
         <span>
             |
-            <button (click)="delete()" class="btn btn-sm btn-danger">
+            <button  *ngIf="this.isAdmin" (click)="delete()" class="btn btn-sm btn-danger">
                 Delete
             </button>
         </span>

@@ -1,0 +1,33 @@
+<div class="p-4">
+  <section class="heading">
+    <span style="font-weight: bold; font-style: italic">{{ title }}</span>
+    <span style="
+      float: right;
+      padding-right: 30px;
+      font-style: italic;
+      font-weight: bold;
+    ">{{ welcomeMsg }}</span>
+  </section>
+  <table class="table table-sm">
+    <tbody>
+      <tr>
+        <td>Product:</td>
+        <td>
+          <select [(ngModel)]="newLineItem.product" class="rounded">
+            <option *ngFor="let p of products" [ngValue]="p">
+              {{p.name}}
+            </option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>Quantity:</td>
+        <td>
+          <input [(ngModel)]="newLineItem.quantity" class="rounded" type="number">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button (click)="addLineItem()"
+    style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px; border: none;">Create</button>
+</div>

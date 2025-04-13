@@ -35,15 +35,13 @@ export class ProductEditComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.loggedInUser = this.sysSvc.loggedInUser;
     this.isAdmin = this.loggedInUser.admin;
-    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
-    console.log('pe ngoninit()');
+    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;   
     this.actRoute.params.subscribe((parms) => {
       console.log('A');
       this.productId = parms['id'];
       this.subscription = this.productSvc.getById(this.productId).subscribe({
         next: (resp) => {
-          this.product = resp;
-          console.log('Pe product', this.product);
+          this.product = resp;          
         },
         error: (err) => {
           console.error('Error getting product for id: ' + this.productId);

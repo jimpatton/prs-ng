@@ -39,8 +39,7 @@ constructor(
       console.log("this.productId", this.productId)
       this.subscription = this.productSvc.getById(this.productId).subscribe({
         next:(resp) => {
-          this.product = resp;
-          console.log('pdc a', this.product)
+          this.product = resp;          
         },
         error:(err) => {
           console.log('Error retrieving product: ',err);

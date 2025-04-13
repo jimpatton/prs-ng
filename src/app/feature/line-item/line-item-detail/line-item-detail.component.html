@@ -1,0 +1,55 @@
+<div class="p-4">
+    <section class="heading">
+        <span style="font-weight: bold; font-style: italic">{{title}}</span>
+        <span style="
+      float: right;
+      padding-right: 30px;
+      font-style: italic;
+      font-weight: bold;
+    ">{{ welcomeMsg }}</span>
+    </section>
+    <main class="single">
+        <table *ngIf="lineItem" class="table table-striped table-hover">
+            <tr>
+                <td>Vendor:</td>
+                <td>
+                    <input [(ngModel)]="lineItem.product.vendor.name" class="rounded" type="text"
+                        style="background-color: lightgrey;" disabled />
+                </td>
+            </tr>
+            <tr>
+                <td>Product:</td>
+                <td>
+                    <input [(ngModel)]="lineItem.product.name" class="rounded" type="text"
+                        style="background-color: lightgrey;" disabled />
+                </td>
+            </tr>
+            <tr>
+                <td>Quantity:</td>
+                <td>
+                    <input [(ngModel)]="lineItem.quantity" class="rounded" type="number"
+                        style="background-color: lightgrey;" disabled />
+                </td>
+            </tr>
+            <tr>
+                <td>Price:</td>
+                <td>
+                    <input [(ngModel)]="lineItem.product.price" class="rounded" type="number"
+                        style="background-color: lightgrey;" disabled />
+                </td>
+            </tr>
+            <tr>
+                <td>Line Total:</td>
+                <td>
+                    <input [(ngModel)]="lineItem.request.total" class="rounded" type="number"
+                        style="background-color: lightgrey;" disabled />
+                </td>
+            </tr>
+        </table>
+    </main>
+    <span *ngIf="lineItem"><a routerLink="/line-items-edit/{{lineItem.id}}"
+            class="btn btn-sm btn-warning">Edit</a></span>
+    <span>
+        <button (click)="delete()" class="btn btn-sm btn-danger">Delete</button>
+    </span>
+</div>

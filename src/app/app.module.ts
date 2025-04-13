@@ -25,6 +25,12 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 import { MenuComponent } from './core/menu/menu.component';
 import { CommonModule } from '@angular/common';
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
+import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
+import { LineItemListComponent } from './feature/line-item/line-item-list/line-item-list.component';
+import { LineItemDetailComponent } from './feature/line-item/line-item-detail/line-item-detail.component';
+import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
+import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
 ;
 
 @NgModule({
@@ -42,13 +48,21 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
     RequestEditComponent,
     RequestDetailComponent,
     RequestCreateComponent,
+    RequestReviewComponent,
     ProductListComponent,
     ProductEditComponent,
     ProductDetailComponent,
     ProductCreateComponent,
     NotFoundComponent,
     MenuComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    RequestLinesComponent,
+    LineItemListComponent,
+    LineItemCreateComponent,
+    LineItemListComponent,
+    LineItemDetailComponent,
+    LineItemEditComponent,
+    RequestReviewComponent
   ],
   imports: [
     BrowserModule,

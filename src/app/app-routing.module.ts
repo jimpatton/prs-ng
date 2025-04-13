@@ -18,6 +18,12 @@ import { ProductEditComponent } from './feature/product/product-edit/product-edi
 import { ProductDetailComponent } from './feature/product/product-detail/product-detail.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
+import { RequestLinesComponent } from './feature/request/request-lines/request-lines.component';
+import { LineItemCreateComponent } from './feature/line-item/line-item-create/line-item-create.component';
+import { LineItemDetailComponent } from './feature/line-item/line-item-detail/line-item-detail.component';
+import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
+import { LineItemListComponent } from './feature/line-item/line-item-list/line-item-list.component';
+import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
 
 const routes: Routes = [
   {path:'', redirectTo: '/user-login',pathMatch: 'full'},
@@ -33,9 +39,15 @@ const routes: Routes = [
   {path:'request-create', component:RequestCreateComponent},
   {path:'request-edit/:id',component:RequestEditComponent},
   {path:'request-detail/:id', component:RequestDetailComponent},
+  {path:'request-lines/:id', component:RequestLinesComponent},
+  {path:'request-review', component:RequestReviewComponent},
   {path:'product-list', component:ProductListComponent},
   {path:'product-create', component:ProductCreateComponent},
   {path:'product-edit/:id',component:ProductEditComponent},
+  {path:'line-items-list', component:LineItemListComponent},
+  {path:'line-items-create/:requestId', component:LineItemCreateComponent},
+  {path:'line-items-edit/:id',component:LineItemEditComponent},
+  {path:'line-items-detail/:id', component:LineItemDetailComponent},
   {path:'product-detail/:id', component:ProductDetailComponent},
   {path:'user-login', component:UserLoginComponent},
   {path:'**', component:NotFoundComponent},

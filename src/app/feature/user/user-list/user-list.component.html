@@ -2,7 +2,7 @@
     <section class="heading">
         <span style="font-weight: bold; font-style: italic">{{title}}</span>
         <a routerLink="/user-create">
-            <img width="20" height="20" src="images/add-icon.png" title="Add New" />
+            <img *ngIf="this.isAdmin" width="20" height="20" src="images/add-icon.png" title="Add New" />
         </a>
         <span
     style="
@@ -44,12 +44,12 @@
                 <td>
                     <input type="checkbox" [checked]="u.admin" disabled />
                 </td>
-                <td><a routerLink="/user-edit/{{ u.id }}">
+                <td><a *ngIf="this.isAdmin"routerLink="/user-edit/{{ u.id }}">
                         <img src="images/pencil-icon.png" width="20" height="20" title="Edit User" />
                     </a>|<a routerLink="/user-detail/{{ u.id }}">
                         <img src="images/details.png" width="20" height="20" title="User Details" />
                     </a>|<a>
-                        <img src="images/delete.jpg" width="20" height="20" title="Delete User"
+                        <img *ngIf="this.isAdmin" src="images/delete.jpg" width="20" height="20" title="Delete User"
                             (click)="delete(u.id)" />
                     </a></td>
             </tr>

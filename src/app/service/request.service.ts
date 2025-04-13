@@ -21,7 +21,7 @@ export class RequestService {
 
   update(request: Request): Observable<Request> {
     return this.http.put(
-      URL + '/' + request.id,
+      URL + '/submit-review/' + request.id,
       request
     ) as Observable<Request>;
   }
