@@ -32,10 +32,10 @@ constructor(
     this.loggedInUser = this.sysSvc.loggedInUser;
     this.isAdmin = this.loggedInUser.admin;
     this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
-    // if(!this.isAdmin){
-    //   this.router.navigate(['not-authorized'])
-    //   return;
-    // }
+    if(!this.isAdmin){
+      this.router.navigateByUrl('/not-authorized')
+      return;
+    }
 
     this.subscription = this.userSvc.list().subscribe(
       (resp) => {
@@ -43,7 +43,7 @@ constructor(
       });
   }
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscription?.unsubscribe();
   }
 
   delete(id:number) {

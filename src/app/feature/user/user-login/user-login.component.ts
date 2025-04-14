@@ -27,8 +27,8 @@ constructor(
 
   ngOnInit(): void {
      console.log('login component ngoninit()');
-    this.userLogin.username = 'patton';
-    this.userLogin.password = 'password';
+    // this.userLogin.username = 'patton';
+    // this.userLogin.password = 'password';
   }
   ngOnDestroy(): void {
     this.subscription?.unsubscribe();

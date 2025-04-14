@@ -4,6 +4,7 @@ import { Product } from '../../../model/product';
 import { ProductService } from '../../../service/product.service';
 import { User } from '../../../model/user';
 import { SystemService } from '../../../service/system.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -21,7 +22,8 @@ isAdmin:boolean = false;
 
 constructor(
   private productSvc:ProductService,
-  private sysSvc:SystemService
+  private sysSvc:SystemService,
+  private router:Router
 
 ){}
 
@@ -29,6 +31,10 @@ constructor(
     this.loggedInUser = this.sysSvc.loggedInUser;
     this.isAdmin = this.loggedInUser.admin;
     this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
+    // if(!this.isAdmin){
+    //   this.router.navigateByUrl('/not-authorized')
+    //   return;
+    // }
     this.subscription = this.productSvc.list().subscribe(
       (resp) => {
         this.products = resp;

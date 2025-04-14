@@ -31,7 +31,7 @@
                 <td>{{li.product.name}}</td>
                 <td>{{li.quantity}}</td>
                 <td>{{li.product.price}}</td>
-                <td>{{li.request.total}}</td>
+                <td>{{li.quantity * li.product.price}}</td>
                 <td><a routerLink="/line-items-edit/{{ li.id }}">
                         <img src="images/pencil-icon.png" width="20" height="20" title="Line Item Edit" />
                     </a>|<a routerLink="/line-items-detail/{{ li.id }}">

@@ -61,8 +61,9 @@ export class RequestEditComponent implements OnInit, OnDestroy {
   }
 
   save() {
-    this.subscription = this.requestSvc.update(this.request).subscribe({
+    this.requestSvc.update(this.request).subscribe({
       next: (resp) => {
+        this.request = resp;
         this.router.navigateByUrl('/request-list');
       },
       error: (err) => {

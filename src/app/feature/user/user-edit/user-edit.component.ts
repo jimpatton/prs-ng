@@ -56,6 +56,6 @@ save() {
   })
 }
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscription?.unsubscribe();
   }
 }

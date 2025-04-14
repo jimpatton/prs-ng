@@ -54,8 +54,8 @@
         <td>{{li.product.vendor.name}}</td>
         <td>{{li.product.name}}</td>
         <td>{{li.quantity}}</td>
-        <td>{{li.product.price}}</td>
-        <td>{{li.request.total}}</td>
+        <td>{{li.product.price|currency}}</td>
+        <td>{{li.quantity * li.product.price|currency}}</td>
         <td>
           <a routerLink="/line-items-edit/{{ li.id }}">
             <img src="images/pencil-icon.png" width="20" height="20" title="Request Edit" /> </a>|<a

@@ -86,6 +86,7 @@ delete(id:number){
     this.subscription = this.lineItemSvc.delete(id).subscribe({
       next: () => {
        this.refreshLineItems();
+       this.router.navigateByUrl('/request-list');
       },   
     error: (err) =>{
       console.log('Error deleting product: ' +id);

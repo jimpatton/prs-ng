@@ -4,6 +4,7 @@ import { Vendor } from '../../../model/vendor';
 import { VendorService } from '../../../service/vendor.service';
 import { User } from '../../../model/user';
 import { SystemService } from '../../../service/system.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-vendor-list',
@@ -21,13 +22,18 @@ isAdmin:boolean = false;
 
 constructor (
   private vendorSvc: VendorService,
-  private sysSvc: SystemService
+  private sysSvc: SystemService,
+  private router:Router
 ) {}
 
   ngOnInit(): void {
     this.loggedInUser = this.sysSvc.loggedInUser;
     this.isAdmin = this.loggedInUser.admin;
     this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
+    // if(!this.isAdmin){
+    //   this.router.navigateByUrl('/not-authorized')
+    //   return;
+    // }
     this.subscription = this.vendorSvc.list().subscribe(
       (resp) => {
         this.vendors = resp;
@@ -36,7 +42,7 @@ constructor (
   }
   
   ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.subscription?.unsubscribe();
   }
 
 delete(id:number) {
