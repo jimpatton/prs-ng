@@ -44,8 +44,8 @@ export class RequestService {
     return this.http.get(URL + '/' + id) as Observable<Request>;
   }
 
-  getListReview(userId: number): Observable<Request> {
-    return this.http.get(URL + '/list-review/' + userId) as Observable<Request>;
+  getListReview(userId: number): Observable<Request[]> {
+    return this.http.get(URL + '/list-review/' + userId) as Observable<Request[]>;
   }
 
   delete(id: number): Observable<Request> {

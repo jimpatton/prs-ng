@@ -1,6 +1,6 @@
 import { Product } from "./product";
 import { Request } from "./request";
-import { Vendor } from "./vendor";
+
 
 export class LineItem {
     id:number;    
