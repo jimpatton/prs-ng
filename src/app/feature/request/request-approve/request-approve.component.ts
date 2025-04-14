@@ -81,4 +81,15 @@ approve(){
     });
   }
 
+reject(){
+ this.subscription = this.requestSVC.reject(this.request).subscribe({
+      next: (resp) => {        
+        this.router.navigateByUrl('/request-list');
+      },
+      error: (err) => {
+        console.error('Error creating request: ' + err.message);
+      },
+    });
+  }
+  
 }

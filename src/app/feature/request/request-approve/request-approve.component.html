@@ -48,5 +48,11 @@
             <td>{{li.request.total}}</td>
         </tr>
     </table>
-    <button (click)="approve()"
-        style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px; border: none;">Approve</button>
+    <tr>
+
+        <button (click)="approve()"
+            style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px; border: none;">Approve</button>
+        <input type="text" [(ngModel)]="request.reasonForRejection">
+        <button (click)="reject()"
+            style="background-color: red; color: white;padding: 5px 10px; border-radius: 5px; border: none;">Reject</button>
+    </tr>
