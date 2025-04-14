@@ -1,23 +1,26 @@
-<div class="p-4">
-    <section class="heading">
-        <span style="font-weight: bold; font-style: italic">{{title}}</span>
-        <span style="
+<section class="heading">
+    <span style="font-weight: bold; font-style: italic">{{title}}</span>
+    <span style="
       float: right;
       padding-right: 30px;
       font-style: italic;
       font-weight: bold;
+      color: white;
     ">{{ welcomeMsg }}</span>
-    </section>
+</section>
+<div class="p-4">
     <table class="table table-hover table-striped">
-        <tr>
-            <th>ID</th>
-            <th>User</th>
-            <th>Description</th>
-            <th>Status</th>
-            <th>Total</th>
-            <th>Submitted Date</th>
-            <th>Action</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>Submitted Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
         <tbody>
             <tr *ngFor="let r of requests">
                 <td>{{r.id}}</td>

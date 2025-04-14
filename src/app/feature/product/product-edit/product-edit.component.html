@@ -1,63 +1,58 @@
-<div class="p-4" *ngIf="product">
-    <section class="heading">
-        <span style="font-weight: bold; font-style: italic">{{title}}</span>
-        <span
-    style="
+<section class="heading">
+    <span style="font-weight: bold; font-style: italic">{{title}}</span>
+    <span style="
       float: right;
       padding-right: 30px;
       font-style: italic;
       font-weight: bold;
-    "
-    >{{ welcomeMsg }}</span>      
-    </section>
+      color: white;
+    ">{{ welcomeMsg }}</span>
+</section>
+<div class="p-4" *ngIf="product">
     <table class="table table-sm">
-    <tr>
-        <td>Vendor:</td>
-        <td>
-            <select [(ngModel)]="product.vendor.name" class="rounded" [compareWith]="compVendor">
-                <option *ngFor="let v of vendors" [ngValue]="v.name">{{v.name}}                    
-                </option>
-            </select>
-        </td>
-    </tr>
-    <tr>
-        <td>Part Number:</td>
-        <td>
-        <input [(ngModel)]="product.partNumber" class="rounded" type="text"/>
-        </td>
-    </tr>
-    <tr>
-        <td>Name:</td>
-        <td>
-            <input [(ngModel)]="product.name" class="rounded" type="text"/>
-        </td>
-    </tr>
-    <tr>
-        <td>Price:</td>
-        <td>
-            <input [(ngModel)]="product.price" class="rounded" type="number"/>
-        </td>
-    </tr>
-    <tr>
-        <td>Unit</td>
-        <td>
-            <input [(ngModel)]="product.unit" class="rounded" type="text" />
-        </td>
-    </tr>
-    <tr>
-        <td>Photopath</td>
-        <td>
-            <input [(ngModel)]="product.photopath" class="rounded" type="text" />
-        </td>
-    </tr>
+        <tr>
+            <td>Vendor:</td>
+            <td>
+                <select [(ngModel)]="product.vendor.name" class="rounded" [compareWith]="compVendor">
+                    <option *ngFor="let v of vendors" [ngValue]="v.name">{{v.name}}
+                    </option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Part Number:</td>
+            <td>
+                <input [(ngModel)]="product.partNumber" class="rounded" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>
+                <input [(ngModel)]="product.name" class="rounded" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td>
+                <input [(ngModel)]="product.price" class="rounded" type="number" />
+            </td>
+        </tr>
+        <tr>
+            <td>Unit</td>
+            <td>
+                <input [(ngModel)]="product.unit" class="rounded" type="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>Photopath</td>
+            <td>
+                <input [(ngModel)]="product.photopath" class="rounded" type="text" />
+            </td>
+        </tr>
     </table>
     <span>
         <button (click)="save()" class="btn btn-am btn-primary">
             Save
         </button>
-        </span>
+    </span>
 </div>
-
-
-   
-

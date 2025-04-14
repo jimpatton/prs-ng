@@ -1,71 +1,72 @@
-<div class="p-4">
-    <section class="heading">
-        <span style="font-weight: bold; font-style: italic">{{title}}</span>
-        <span style="
+<section class="heading">
+    <span style="font-weight: bold; font-style: italic">{{title}}</span>
+    <span style="
       float: right;
       padding-right: 30px;
       font-style: italic;
       font-weight: bold;
+      color: white;
     ">{{ welcomeMsg }}</span>
-    </section>
-    <p *ngIf="!newVendor">Loading...</p>
-    <div *ngIf="newVendor">
-        <main class="single">
-            <table class="table table-sm">
-                <tr>
-                    <td>Code:</td>
-                    <td>
-                        <input [(ngModel)]="newVendor.code" class="rounded" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Name:</td>
-                    <td>
-                        <input [(ngModel)]="newVendor.name" class="rounded" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Address:</td>
-                    <td>
-                        <input [(ngModel)]="newVendor.address" class="rounded" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>City:</td>
-                    <td>
-                        <input [(ngModel)]="newVendor.city" class="rounded" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>State:</td>
-                    <td>
-                        <select [(ngModel)]="newVendor.state" class="rounded">
-                            <option *ngFor="let s of states" [ngValue]="s">
-                                {{s}}
-                            </option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Zip:</td>
-                    <td>
-                        <input [(ngModel)]="newVendor.zip" class="rounded" type="text" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Phone Number:</td>
-                    <td>
-                        <input [(ngModel)]="newVendor.phoneNumber" class="rounded" type="tel" />
-                    </td>
-                </tr>
-                <tr>
-                    <td>Email:</td>
-                    <td>
-                        <input [(ngModel)]="newVendor.email" class="rounded" type="email" />
-                    </td>
-                </tr>
-            </table>
-        </main>
-        <button (click)="addVendor()"
-            style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px; border: none;">Create</button>
-    </div>
+</section>
+<div class="p-4"></div>
+<p *ngIf="!newVendor">Loading...</p>
+<div *ngIf="newVendor">
+    <main class="single">
+        <table class="table table-sm">
+            <tr>
+                <td>Code:</td>
+                <td>
+                    <input [(ngModel)]="newVendor.code" class="rounded" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input [(ngModel)]="newVendor.name" class="rounded" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td>
+                    <input [(ngModel)]="newVendor.address" class="rounded" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>City:</td>
+                <td>
+                    <input [(ngModel)]="newVendor.city" class="rounded" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>State:</td>
+                <td>
+                    <select [(ngModel)]="newVendor.state" class="rounded">
+                        <option *ngFor="let s of states" [ngValue]="s">
+                            {{s}}
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Zip:</td>
+                <td>
+                    <input [(ngModel)]="newVendor.zip" class="rounded" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>Phone Number:</td>
+                <td>
+                    <input [(ngModel)]="newVendor.phoneNumber" class="rounded" type="tel" />
+                </td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td>
+                    <input [(ngModel)]="newVendor.email" class="rounded" type="email" />
+                </td>
+            </tr>
+        </table>
+    </main>
+    <button (click)="addVendor()"
+        style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px; border: none;">Create</button>
+</div>

@@ -1,22 +1,22 @@
-<div *ngIf="user" class="component">
-       <section class="heading">
-        <p><span style="font-weight: bold; font-style: italic">{{title}}</span> | <a routerLink="/user-list">Return to List</a></p>
-        <!-- <span class="page-title font-weight-bold font-italic">{{title}}</span> -->
-        <!-- <span> | <a routerLink="/user-list">Return to List</a></span>         -->
-         <span
-    style="
+<section class="heading">
+    <p><span style="font-weight: bold; font-style: italic">{{title}}</span> | <a routerLink="/user-list">Return to
+            List</a></p>
+    <!-- <span class="page-title font-weight-bold font-italic">{{title}}</span> -->
+    <!-- <span> | <a routerLink="/user-list">Return to List</a></span>         -->
+    <span style="
       float: right;
       padding-right: 30px;
       font-style: italic;
       font-weight: bold;
-    "
-    >{{ welcomeMsg }}</span>
-    </section>
+      color: white;
+    ">{{ welcomeMsg }}</span>
+</section>
+<div *ngIf="user" class="component">
     <main class="single">
         <table class="table table-sm">
             <tr>
                 <td>ID</td>
-                <td>{{user.id}}</td>                
+                <td>{{user.id}}</td>
             </tr>
             <tr>
                 <td>Username:</td>
@@ -32,11 +32,11 @@
             </tr>
             <tr>
                 <td>Last Name:</td>
-                <input [(ngModel)]="user.lastName" class="rounded" type="text" disabled />                
+                <input [(ngModel)]="user.lastName" class="rounded" type="text" disabled />
             </tr>
             <tr>
                 <td>Phone Number:</td>
-                <input [(ngModel)]="user.phoneNumber" class="rounded" type="tel" disabled />                
+                <input [(ngModel)]="user.phoneNumber" class="rounded" type="tel" disabled />
             </tr>
             <tr>
                 <td>Email:</td>
@@ -44,7 +44,7 @@
             </tr>
             <tr>
                 <td>Reviewer</td>
-                <input [(ngModel)]="user.reviewer" type="checkbox"  disabled />
+                <input [(ngModel)]="user.reviewer" type="checkbox" disabled />
             </tr>
             <tr>
                 <td>Admin:</td>
@@ -56,10 +56,9 @@
         <span><a *ngIf="this.isAdmin" routerLink="/user-edit/{{user.id}}" class="btn btn-sm btn-warning">Edit</a></span>
         <span>
             |
-            <button  *ngIf="this.isAdmin" (click)="delete()" class="btn btn-sm btn-danger">
+            <button *ngIf="this.isAdmin" (click)="delete()" class="btn btn-sm btn-danger">
                 Delete
             </button>
         </span>
     </span>
 </div>
-

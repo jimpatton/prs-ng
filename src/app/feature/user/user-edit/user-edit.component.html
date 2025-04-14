@@ -1,79 +1,77 @@
-<div class="p-4">  
-    <section class="heading">
-<span style="font-weight: bold; font-style: italic">{{title}}</span>
- <span
-    style="
+<section class="heading">
+    <span style="font-weight: bold; font-style: italic">{{title}}</span>
+    <span style="
       float: right;
       padding-right: 30px;
       font-style: italic;
       font-weight: bold;
-    "
-    >{{ welcomeMsg }}</span>
+      color: white;
+    ">{{ welcomeMsg }}</span>
 </section>
+<div class="p-4">
+    <p *ngIf="!user">Loading...</p>
+    <div *ngIf="user">
 
-<p *ngIf="!user">Loading...</p>
-<div *ngIf="user">
-    
-    <main class ="single">
-        <table class= "table table-sm">
-            <tr>
-                <td>ID</td>
-                <td>{{user.id}}</td>                
-            </tr>
-            <tr>
-                <td>Username:</td>
-                <td>
-                    <input [(ngModel)]="user.userName" class="rounded" type ="text"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td>
-                    <input [(ngModel)]="user.password" class="rounded" type="text"/>
-                </td>
-            </tr>
-            <tr>
-                <td>First Name:</td>
-                <td>
-                    <input [(ngModel)]="user.firstName" class="rounded" type="text"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Last Name:</td>
-                <td>
-                <input [(ngModel)]="user.lastName" class="rounded" type="text"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Phone Number</td>
-                <td>
-                <input [(ngModel)]="user.phoneNumber" class="rounded" type="tel">
-                </td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td>
-                <input [(ngModel)]="user.email" class="rounded" type="email">
-                </td>
-            </tr>
-            <tr>
-                <td>Reviewer:</td>
-                <td>
-                <input [(ngModel)]="user.reviewer" type="checkbox">
-                </td>
-            </tr>
-            <tr>
-                <td>Admin:</td>
-                <td>
-                <input [(ngModel)]="user.admin" type="checkbox">
-                </td>
-            </tr>
-        </table>
-    </main>
-    <span>
-        <button (click)="save()" class="btn btn-am btn-primary">
-            Save
-        </button>
-    </span>
-</div>
+        <main class="single">
+            <table class="table table-sm">
+                <tr>
+                    <td>ID</td>
+                    <td>{{user.id}}</td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td>
+                        <input [(ngModel)]="user.userName" class="rounded" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input [(ngModel)]="user.password" class="rounded" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>First Name:</td>
+                    <td>
+                        <input [(ngModel)]="user.firstName" class="rounded" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td>
+                        <input [(ngModel)]="user.lastName" class="rounded" type="text" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone Number</td>
+                    <td>
+                        <input [(ngModel)]="user.phoneNumber" class="rounded" type="tel">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input [(ngModel)]="user.email" class="rounded" type="email">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Reviewer:</td>
+                    <td>
+                        <input [(ngModel)]="user.reviewer" type="checkbox">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Admin:</td>
+                    <td>
+                        <input [(ngModel)]="user.admin" type="checkbox">
+                    </td>
+                </tr>
+            </table>
+        </main>
+        <span>
+            <button (click)="save()" class="btn btn-am btn-primary">
+                Save
+            </button>
+        </span>
+    </div>
 </div>
