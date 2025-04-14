@@ -31,6 +31,7 @@ import { LineItemListComponent } from './feature/line-item/line-item-list/line-i
 import { LineItemDetailComponent } from './feature/line-item/line-item-detail/line-item-detail.component';
 import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-item-edit.component';
 import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
+import { NotAuthorizedComponent } from './core/not-authorized/not-authorized.component';
 ;
 
 @NgModule({
@@ -62,7 +63,8 @@ import { RequestReviewComponent } from './feature/request/request-review/request
     LineItemListComponent,
     LineItemDetailComponent,
     LineItemEditComponent,
-    RequestReviewComponent
+    RequestReviewComponent,
+    NotAuthorizedComponent
   ],
   imports: [
     BrowserModule,

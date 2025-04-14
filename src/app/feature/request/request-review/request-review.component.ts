@@ -17,7 +17,7 @@ import { parseTemplate } from '@angular/compiler';
 export class RequestReviewComponent implements OnInit, OnDestroy{
 title:string = "Request Review";
 requestId:number =0 ;
-request!:Request;
+requests!:Request[];
 userId:number = 0;
 user!:User[];
 subscription!:Subscription;
@@ -38,7 +38,16 @@ constructor(
     this.loggedInUser = this.sysSvc.loggedInUser;
     this.isReviewer = this.loggedInUser.reviewer;
     this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
-    //get requests in "review" status
+    //if not reviewer
+    if(!this.isReviewer){
+      this.router.navigate(['not-authorized'])
+      return;
+    }
+    //get requests in review status
+    this.subscription = this.requestSvc.list().subscribe((resp)=>{
+      this.requests = resp.filter(request=>request.status==='REVIEW');
+
+    })
   }
 
     
