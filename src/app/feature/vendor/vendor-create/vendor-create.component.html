@@ -1,14 +1,12 @@
 <div class="p-4">
     <section class="heading">
         <span style="font-weight: bold; font-style: italic">{{title}}</span>
-        <span
-    style="
+        <span style="
       float: right;
       padding-right: 30px;
       font-style: italic;
       font-weight: bold;
-    "
-    >{{ welcomeMsg }}</span>
+    ">{{ welcomeMsg }}</span>
     </section>
     <p *ngIf="!newVendor">Loading...</p>
     <div *ngIf="newVendor">
@@ -68,5 +66,6 @@
                 </tr>
             </table>
         </main>
-        <button (click)="addVendor()">Add Vendor</button>
+        <button (click)="addVendor()"
+            style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px; border: none;">Create</button>
     </div>

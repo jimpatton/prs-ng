@@ -1,14 +1,12 @@
 <div class="p-4">
   <section class="heading">
     <span style="font-weight: bold; font-style: italic">{{ title }}</span>
-    <span
-    style="
+    <span style="
       float: right;
       padding-right: 30px;
       font-style: italic;
       font-weight: bold;
-    "
-    >{{ welcomeMsg }}</span>
+    ">{{ welcomeMsg }}</span>
   </section>
   <table class="table table-sm">
     <tbody>
@@ -25,11 +23,7 @@
       <tr>
         <td>Part Number:</td>
         <td>
-          <input
-            [(ngModel)]="newProduct.partNumber"
-            class="rounded"
-            type="text"
-          />
+          <input [(ngModel)]="newProduct.partNumber" class="rounded" type="text" />
         </td>
       </tr>
       <tr>
@@ -53,14 +47,11 @@
       <tr>
         <td>Photopath</td>
         <td>
-          <input
-            [(ngModel)]="newProduct.photopath"
-            class="rounded"
-            type="text"
-          />
+          <input [(ngModel)]="newProduct.photopath" class="rounded" type="text" />
         </td>
       </tr>
     </tbody>
   </table>
-  <button (click)="addProduct()">Add Product</button>
+  <button (click)="addProduct()"
+    style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px; border: none;">Create</button>
 </div>

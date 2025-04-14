@@ -46,7 +46,7 @@ login(){
         this.sysSvc.loggedInUser = resp;
         console.log('userlogin', this.sysSvc.loggedInUser);    
         //nav to movie list
-        this.router.navigateByUrl('/user-list');
+        this.router.navigateByUrl('/request-list');
       },
       error: (err) =>{
         //unsuccessful login
@@ -54,8 +54,4 @@ login(){
       }
     });
   }
-
-
-
-
 }

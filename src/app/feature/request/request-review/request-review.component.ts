@@ -25,6 +25,7 @@ welcomeMsg!:string;
 loggedInUser!:User;
 isAdmin:boolean = false;
 isReviewer:boolean = false;
+isLoggedInUser:boolean = false;
 
 constructor(
   private sysSvc:SystemService,
@@ -37,18 +38,25 @@ constructor(
   ngOnInit(): void {
     this.loggedInUser = this.sysSvc.loggedInUser;
     this.isReviewer = this.loggedInUser.reviewer;
-    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
+    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;    
     //if not reviewer
     if(!this.isReviewer){
       this.router.navigate(['not-authorized'])
       return;
-    }
+    }  
     //get requests in review status
     this.subscription = this.requestSvc.list().subscribe((resp)=>{
-      this.requests = resp.filter(request=>request.status==='REVIEW');
-
+      this.requests = resp.filter(request=>request.status==='REVIEW')
     })
+
+    
+
+
+
   }
+
+
+
 
     
   ngOnDestroy(): void {

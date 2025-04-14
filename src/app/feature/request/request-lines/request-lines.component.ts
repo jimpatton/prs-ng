@@ -60,10 +60,6 @@ ngOnInit(): void {
         console.log('Error retrieving line items for request', err);
       },
     });
-
-
-
-
   });
 }
 ngOnDestroy(): void {

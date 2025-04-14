@@ -16,13 +16,15 @@
             <th>Status</th>
             <th>Total</th>
         </tr>
-        <tr>
-            <td>{{request.user.firstName + ' '+ request.user.lastName}}</td>
-            <td>{{request.description}}</td>
-            <td>{{request.status}}</td>
-            <td>{{request.total|currency}}
-            <td>
-        </tr>
+        <tbody>
+            <tr>
+                <td>{{request.user.firstName + ' '+ request.user.lastName}}</td>
+                <td>{{request.description}}</td>
+                <td>{{request.status}}</td>
+                <td>{{request.total|currency}}
+                <td>
+            </tr>
+        </tbody>
     </table>
 </div>
 <div>
@@ -30,23 +32,24 @@
 
     </section>
     <table class="table table-hover table-striped">
-        <tr>
-            <th>ID</th>
-            <th>Vendor</th>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Line Total</th>
-            <th>Action</th>
-        </tr>
-        <tr *ngFor="let li of lineItems">
-            <td>{{li.id}}</td>
-            <td>{{li.product.vendor.name}}</td>
-            <td>{{li.product.name}}</td>
-            <td>{{li.quantity}}</td>
-            <td>{{li.product.price}}</td>
-            <td>{{li.request.total}}</td>
-        </tr>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <th>Vendor</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Line Total</th>
+            </tr>
+            <tr *ngFor="let li of lineItems">
+                <td>{{li.id}}</td>
+                <td>{{li.product.vendor.name}}</td>
+                <td>{{li.product.name}}</td>
+                <td>{{li.quantity}}</td>
+                <td>{{li.product.price |currency}}</td>
+                <td>{{li.request.total|currency}}</td>
+            </tr>
+        </tbody>
     </table>
     <tr>
 

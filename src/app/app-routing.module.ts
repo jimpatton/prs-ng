@@ -25,6 +25,7 @@ import { LineItemEditComponent } from './feature/line-item/line-item-edit/line-i
 import { LineItemListComponent } from './feature/line-item/line-item-list/line-item-list.component';
 import { RequestReviewComponent } from './feature/request/request-review/request-review.component';
 import { NotAuthorizedComponent } from './core/not-authorized/not-authorized.component';
+import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
 
 const routes: Routes = [
   {path:'', redirectTo: '/user-login',pathMatch: 'full'},
@@ -42,6 +43,7 @@ const routes: Routes = [
   {path:'request-detail/:id', component:RequestDetailComponent},
   {path:'request-lines/:id', component:RequestLinesComponent},
   {path:'request-review', component:RequestReviewComponent},
+  {path:'request-approve/:id', component:RequestApproveComponent},
   {path:'product-list', component:ProductListComponent},
   {path:'product-create', component:ProductCreateComponent},
   {path:'product-edit/:id',component:ProductEditComponent},

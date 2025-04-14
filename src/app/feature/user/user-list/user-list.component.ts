@@ -3,6 +3,7 @@ import { User } from '../../../model/user';
 import { Subscription } from 'rxjs';
 import { UserService } from '../../../service/user.service';
 import { SystemService } from '../../../service/system.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,12 +25,18 @@ export class UserListComponent implements OnInit, OnDestroy{
 constructor(
   private userSvc:UserService,
   private sysSvc:SystemService,
+  private router:Router
 ){}
 
   ngOnInit(): void {
     this.loggedInUser = this.sysSvc.loggedInUser;
     this.isAdmin = this.loggedInUser.admin;
     this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
+    // if(!this.isAdmin){
+    //   this.router.navigate(['not-authorized'])
+    //   return;
+    // }
+
     this.subscription = this.userSvc.list().subscribe(
       (resp) => {
         this.users = resp;
