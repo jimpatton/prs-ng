@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../../model/menu-item';
+import { User } from '../../model/user';
+import { SystemService } from '../../service/system.service';
 
 @Component({
   selector: 'app-menu',
@@ -10,6 +12,13 @@ import { MenuItem } from '../../model/menu-item';
 export class MenuComponent implements OnInit {
   title = 'PRS';
   menuItems: MenuItem[] = [];
+  welcomeMsg!:string;
+  loggedInUser!:User;
+  isAdmin:boolean = false;
+
+  constructor(
+    private sysSvc:SystemService
+  ){}
 
   ngOnInit(): void {
     this.menuItems = [
@@ -20,6 +29,9 @@ export class MenuComponent implements OnInit {
       new MenuItem('Review','/request-review','Request Review'),
       new MenuItem('Login', '/user-login','User Login')     
     ];
+    this.loggedInUser = this.sysSvc.loggedInUser;
+    this.isAdmin = this.loggedInUser.admin;
+    this.welcomeMsg = `Hello, ${this.loggedInUser.firstName}!`;
   }
 
 }

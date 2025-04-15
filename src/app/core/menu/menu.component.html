@@ -5,5 +5,14 @@
         <li *ngFor="let mi of menuItems" title="{{mi.tooltip}}">
             <a routerLink="{{mi.href}}">{{mi.display}}</a>
         </li>
+
+        <span style="
+          float: right;
+          padding-right: 30px;
+          padding-top: 50px;
+          font-style: italic;
+          font-weight: bold;
+          color: white;
+        ">{{ welcomeMsg }}</span>
     </ul>
 </nav>
