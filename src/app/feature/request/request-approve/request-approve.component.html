@@ -22,7 +22,7 @@
         </tbody>
     </table>
 </div>
-<div>
+<div class="table-wrapper">
     <section class="heading"><span style="font-weight: bold; font-style: italic">Line Items</span>
 
     </section>
@@ -48,10 +48,15 @@
     </table>
 </div>
 <tr>
-
-    <button (click)="approve()"
-        style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px; border: none;">Approve</button>
-    <input type="text" [(ngModel)]="request.reasonForRejection">
-    <button (click)="reject()"
-        style="background-color: red; color: white;padding: 5px 10px; border-radius: 5px; border: none;">Reject</button>
+    <td style="padding-right: 10px;">
+        <button (click)="approve()"
+            style="background-color: blue; color: white; padding: 5px 10px; border-radius: 5px; border: none;">Approve</button>
+    </td>
+    <td style="padding-right: 10px;">
+        <input type="text" [(ngModel)]="request.reasonForRejection">
+        <!-- </td>
+    <td style="padding-right: 10px;"> -->
+        <button (click)="reject()"
+            style="background-color: red; color: white;padding: 5px 10px; border-radius: 5px; border: none;">Reject</button>
+    </td>
 </tr>

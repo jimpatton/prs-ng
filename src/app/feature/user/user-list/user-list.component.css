@@ -1,3 +1,28 @@
 div {
-    opacity: 0.5;
+    opacity: 0.6;
+}
+
+.table-wrapper {
+    max-height: 600px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background: white;
+    /* crucial or headers appear behind rows */
+    z-index: 1;
 }
